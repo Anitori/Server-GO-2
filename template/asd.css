@@ -1,0 +1,10 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: bisque;
+    color: rgb(45, 45, 163);
+ }
+
+ .test{
+     border: solid 1px red;
+ }

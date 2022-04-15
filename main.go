@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"html/template"
 )
 
 func main(){
@@ -14,8 +15,10 @@ func main(){
 }
 
 func upload(w http.ResponseWriter, r *http.Request){
+	
 	if r.Method == http.MethodPost {
-		file, handle, err := r.FormFile("myFile")
+		file, handle, err:= r.FormFile("myFile") //Ver esta linea
+		template, err := template.ParseFiles("template/test.html")
 		if err != nil {
 			log.Printf("Error al cargar el archivo %v", err)
 			fmt.Fprintf(w, "Error al cargar el archivo %v", err )
@@ -36,7 +39,7 @@ func upload(w http.ResponseWriter, r *http.Request){
 			fmt.Fprintf(w, "Error al escribir el archivo %v", err )
 			return
 		}
-
+		template.Execute(w, nil)
 		fmt.Fprint(w, "Archivo cargado exitosamente")
 	}
 }
