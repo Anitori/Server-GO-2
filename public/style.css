@@ -6,7 +6,7 @@
 body{
     display: flex;
     justify-content: center;
-    height: 800px;
+    height: 500px;
     align-items: center;
     border: solid 1px yellow;
 }

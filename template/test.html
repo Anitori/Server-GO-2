@@ -8,21 +8,48 @@
 
     <link href="asd.css" rel="stylesheet">
 
-    <style> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
 
+    <style> 
+    *{
+        box-sizing: border-box;
+        font-family: 'Nunito Sans', sans-serif;
+        color: white;
+        font-weight: bold;
+    }
     body{
         background-color: blueviolet;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
     }
+
+
         .test{
             color: blue;
             font-weight: bold;
         }   
+
+        #backHome{
+            border: solid 1px black;
+            font-weight: bold;
+            background-color: antiquewhite;
+            color: black;
+            margin-right: 20px;
+            padding: 10px;
+        }
     </style>
 
 </head>
 <body>
-    <div class="test">Test Page</div>
-    <div>TEST TEST</div>
     
+    <!-- <input id="back" type="button" value="Página anterior" onClick="history.go(-1);"> -->
+
+    <!-- La ip o URL inicial de la page -->
+    <a href="http://192.168.77.119:8080" id="backHome">Subir otro archivo</a>
+
 </body>
 </html>
