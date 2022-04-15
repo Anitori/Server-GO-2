@@ -1,2 +1,2 @@
 # Server GO 2
- Up file
+ Upload file
