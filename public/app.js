@@ -8,7 +8,7 @@ myInput.addEventListener("change", function () {
 	// si no hay archivos, regresamos
 	if (this.files.length <= 0) return;
 
-	// Validamos el primer archivo únicamente
+	// Valido el primer archivo únicamente
 	const archivo = this.files[0];
 
 	if (archivo.size > valorMax) {

@@ -8,25 +8,33 @@ body{
     justify-content: center;
     height: 500px;
     align-items: center;
-    border: solid 1px yellow;
 }
 form{
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
-    height: 70px;
+    width: 500px;
+    height: 80px;
     display: flex;
-    border: solid 1px red;
+    border: solid 1px rgb(97, 80, 80);
     font-weight: bold;
+    border-radius: 20px;
 }
 
 #btnSend{
     width: 60px;
     height: 21px;
-    margin: 20px 0px 0px 30px;
+    margin: 20px 0px 0px 70px;
 }
 
 #myFile{
-    margin-top: 20px;
-    border: solid 1px blue;
+    margin: 20px 0px 0px 20px
+    
+}
+#select{
+    border-radius: 20px 20px 0px 0px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    background-color: rgba(96, 89, 89, 0.384);
+    font-weight: bold;
+    padding: 5px 0px 0px 20px;
 }
