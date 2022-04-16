@@ -2,20 +2,24 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"html/template"
 )
 
 func main(){
+
 	
 	http.Handle("/", http.FileServer(http.Dir("./public")))
+
 	log.Println("Escuchando en puerto :8080")
 	http.HandleFunc("/upload", upload)
 
-	http.ListenAndServe(":8080", nil)
-	log.Println("IP Entrante") 
+	// log.Println("IP:")
+	http.ListenAndServe(":8080", nil )
+
+	 
 }
 
 func home (w http.ResponseWriter, r *http.Request){
@@ -60,19 +64,11 @@ func upload(w http.ResponseWriter, r *http.Request){
 		log.Printf("Archivo cargado exitosamente: %v", nombre) //Filename previamente guardado en una variable
 		log.Printf("IP proveniente: %v", r.RemoteAddr) //Dirección IP del que sube el archivo
 		log.Printf("Tipo de archivo: %v", http.DetectContentType(data) ) 
-		log.Printf("Tamaño en bytes: %d", tamaño) //SizeFile previamente guardado en una variable
-		log.Printf("Tamaño en Kb: %d", tamañoEnKb)
-		log.Printf("Tamaño en Mb: %v", tamañoEnMb)
+		log.Println("Tamaño de ", tamaño, "Bytes") //SizeFile previamente guardado en una variable
+		log.Println("Tamaño de ", tamañoEnKb, "KB")
+		log.Println("Tamaño de ", tamañoEnMb, "MB")
 		log.Println("") //Espacios para una mayor claridad a la hora de lectura
 		log.Println("")
-
-		
-
-		
-		
-
-	
-
 	}
 }
 
