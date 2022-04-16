@@ -11,19 +11,23 @@ import (
 func main(){
 
 	
-	http.Handle("/", http.FileServer(http.Dir("./public")))
+	// http.Handle("/", http.FileServer(http.Dir("./public")))
 
 	log.Println("Escuchando en puerto :8080")
+
+	http.HandleFunc("/", func(rw http.ResponseWriter, req *http.Request) { //En vez de agregar la función en el segundo parámetro, había que crearla
+		http.ServeFile(rw, req, "./public/index.html") //Testear en upload
+		log.Println("Ip Entrante", req.RemoteAddr)
+		log.Println("")
+	})
+
 	http.HandleFunc("/upload", upload)
 
+	
 	// log.Println("IP:")
 	http.ListenAndServe(":8080", nil )
 
 	 
-}
-
-func home (w http.ResponseWriter, r *http.Request){
-	log.Println("Ip Entrante", r.RemoteAddr)
 }
 
 func upload(w http.ResponseWriter, r *http.Request){
@@ -67,7 +71,7 @@ func upload(w http.ResponseWriter, r *http.Request){
 		log.Println("Tamaño de ", tamaño, "Bytes") //SizeFile previamente guardado en una variable
 		log.Println("Tamaño de ", tamañoEnKb, "KB")
 		log.Println("Tamaño de ", tamañoEnMb, "MB")
-		log.Println("") //Espacios para una mayor claridad a la hora de lectura
+		log.Println("") //Espacios para una mayor claridad de lectura
 		log.Println("")
 	}
 }
